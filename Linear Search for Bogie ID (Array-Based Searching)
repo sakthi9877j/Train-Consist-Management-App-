@@ -1,0 +1,39 @@
+public class TrainApp {
+
+    public static void main(String[] args) {
+
+        System.out.println("=== Train Consist Management App ===");
+
+        // Array of bogie IDs
+        String[] bogieIds = {
+                "BG101",
+                "BG205",
+                "BG309",
+                "BG412",
+                "BG550"
+        };
+
+        // Search key (you can change this to test)
+        String searchKey = "BG309";
+
+        System.out.println("\nSearching for Bogie ID: " + searchKey);
+
+        boolean found = false;
+
+        // Linear Search
+        for (String id : bogieIds) {
+
+            if (id.equals(searchKey)) {
+                found = true;
+                break; // early termination
+            }
+        }
+
+        // Result
+        if (found) {
+            System.out.println("Result: Bogie ID FOUND");
+        } else {
+            System.out.println("Result: Bogie ID NOT FOUND");
+        }
+    }
+}
