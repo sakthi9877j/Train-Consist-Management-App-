@@ -1,0 +1,42 @@
+public class TrainApp {
+
+    public static void main(String[] args) {
+
+        System.out.println("=== Train Consist Management App ===");
+
+        // Bogie IDs (try empty array to test exception)
+        String[] bogieIds = {};
+
+        String searchKey = "BG101";
+
+        try {
+
+            // Step 1: Validate state (Fail-Fast)
+            if (bogieIds.length == 0) {
+                throw new IllegalStateException("Search operation failed: No bogies available in train consist");
+            }
+
+            // Step 2: Linear Search
+            boolean found = false;
+
+            for (String id : bogieIds) {
+                if (id.equals(searchKey)) {
+                    found = true;
+                    break;
+                }
+            }
+
+            // Step 3: Result
+            if (found) {
+                System.out.println("Result: Bogie ID FOUND");
+            } else {
+                System.out.println("Result: Bogie ID NOT FOUND");
+            }
+
+        } catch (IllegalStateException e) {
+            System.out.println("Exception: " + e.getMessage());
+        }
+
+        System.out.println("\nSystem continues execution safely...");
+    }
+}
